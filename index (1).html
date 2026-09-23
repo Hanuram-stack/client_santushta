@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learn with Santushta | Personalised Tutoring &amp; Student Mentorship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#002046;
+    --rust:#9e4300;
+    --cream:#fbf9f5;
+    --cream-alt:#f5f3ef;
+    --white:#ffffff;
+    --ink:#1b1c1a;
+    --muted:#44474e;
+    --border:#e4e2de;
+    --border-soft:#ebe6de;
+    --input-border:#d8d2c6;
+    --input-bg:#fbf9f5;
+    --orange-light:#ffdbcb;
+    --navy-tint:#eae8e4;
+    --teal:#003e31;
+    --physics:#1b365d; --physics-bg:#eef3f8; --physics-border:#c5d5e8;
+    --chem:#9c4710; --chem-bg:#fcf2eb; --chem-border:#f2cfb8;
+    --bio:#2a5246; --bio-bg:#edf4f1; --bio-border:#c3dcd3;
+    --radius-lg:16px;
+    --radius-md:12px;
+    --radius-sm:8px;
+    --shadow-card:0px 4px 16px -2px rgba(27,42,56,0.05),0px 2px 6px -1px rgba(217,107,39,0.03);
+    --shadow-btn:0px 4px 6px -1px rgba(0,0,0,0.1),0px 2px 4px -2px rgba(0,0,0,0.1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Playfair Display', serif;
+    margin:0;
+    color:var(--navy);
+    font-weight:600;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  .container{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+  .section{
+    padding:80px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.055em;
+    text-transform:uppercase;
+    color:var(--rust);
+    text-align:center;
+    display:block;
+  }
+  .section-head{
+    max-width:768px;
+    margin:0 auto 64px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .section-head h2{
+    font-size:32px;
+    line-height:1.25;
+    letter-spacing:-0.01em;
+  }
+  .section-head p{
+    font-size:18px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 13px;
+    border-radius:9999px;
+    font-size:12px;
+    font-weight:600;
+  }
+  .icon{
+    flex-shrink:0;
+    display:inline-flex;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--border);
+    box-shadow:0px 1px 1px rgba(0,0,0,0.05);
+  }
+  .nav-wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:8px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-mark{
+    width:40px;height:40px;flex-shrink:0;
+    background:var(--navy);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0px 1px 1px rgba(0,0,0,0.05);
+  }
+  .brand-name{
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    font-weight:600;
+    color:var(--navy);
+    line-height:1.3;
+  }
+  .brand-tagline{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    color:var(--muted);
+  }
+  nav.primary-nav{
+    display:flex;
+    gap:32px;
+    align-items:center;
+  }
+  nav.primary-nav a{
+    font-size:14px;
+    font-weight:600;
+    color:var(--muted);
+    padding-bottom:6px;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+  }
+  nav.primary-nav a:hover, nav.primary-nav a.active{
+    color:var(--rust);
+    border-bottom-color:var(--rust);
+  }
+  .header-ctas{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .badge-consult{
+    background:var(--orange-light);
+    border:1px solid rgba(158,67,0,0.2);
+    color:#341100;
+    display:flex;align-items:center;gap:6px;
+  }
+  .dot{width:8px;height:8px;border-radius:9999px;background:var(--rust);display:inline-block;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:14px;
+    padding:14px 28px;
+    border:none;
+    white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--rust);
+    color:#fff;
+    box-shadow:var(--shadow-btn);
+  }
+  .btn-primary:hover{background:#823600;}
+  .btn-outline{
+    background:transparent;
+    border:2px solid var(--navy);
+    color:var(--navy);
+    padding:12px 26px;
+  }
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-block{width:100%;}
+  .header-ctas .btn{height:44px;padding:0 20px;}
+  .menu-toggle{
+    display:none;
+    background:none;border:1px solid var(--border);border-radius:8px;
+    width:40px;height:40px;align-items:center;justify-content:center;
+  }
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    content:"";display:block;width:18px;height:2px;background:var(--navy);position:relative;
+  }
+  .menu-toggle span::before{position:absolute;top:-6px;}
+  .menu-toggle span::after{position:absolute;top:6px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 97px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-copy{display:flex;flex-direction:column;gap:24px;align-items:flex-start;}
+  .hero-eyebrow{
+    background:var(--navy-tint);
+    border:1px solid rgba(196,198,207,0.4);
+    color:var(--navy);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:52px;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--rust);
+    font-weight:600;
+  }
+  .hero-desc{
+    font-size:18px;
+    line-height:1.62;
+    color:var(--muted);
+    max-width:640px;
+  }
+  .trust-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .trust-badge{
+    background:var(--cream-alt);
+    border:1px solid var(--border);
+    color:var(--ink);
+    font-weight:600;
+  }
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;padding-top:8px;}
+
+  .mentor-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:33px;
+    position:relative;
+    box-shadow:var(--shadow-card);
+    overflow:hidden;
+  }
+  .mentor-card::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg, var(--navy), var(--rust) 50%, var(--navy));
+  }
+  .mentor-top{
+    display:flex;
+    gap:16px;
+    padding-bottom:25px;
+    border-bottom:1px solid var(--border);
+  }
+  .mentor-photo{
+    width:80px;height:80px;border-radius:16px;
+    border:1px solid rgba(196,198,207,0.4);
+    background:var(--navy-tint) center/cover no-repeat;
+    background-image:linear-gradient(135deg,#dfe3ea,#c9d2df);
+    flex-shrink:0;
+    box-shadow:inset 0px 2px 4px 1px rgba(0,0,0,0.05);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--navy);font-family:'Playfair Display',serif;font-weight:600;font-size:26px;
+  }
+  .mentor-name-row{display:flex;align-items:center;gap:8px;}
+  .mentor-name-row h3{font-size:20px;}
+  .mentor-role{color:var(--rust);font-size:12px;font-weight:600;letter-spacing:0.02em;margin-top:2px;}
+  .mentor-sub{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.5;}
+  .mentor-domains{padding:20px 0 21px;border-bottom:1px solid var(--border);}
+  .mentor-domains .eyebrow{text-align:left;margin-bottom:12px;}
+  .focus-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 13px;border-radius:9999px;font-size:12px;font-weight:600;
+    margin-bottom:8px;
+  }
+  .focus-pill .dot{width:8px;height:8px;}
+  .focus-physics{background:var(--physics-bg);border:1px solid var(--physics-border);color:var(--physics);}
+  .focus-physics .dot{background:var(--physics);}
+  .focus-chem{background:var(--chem-bg);border:1px solid var(--chem-border);color:var(--chem);}
+  .focus-chem .dot{background:var(--chem);}
+  .focus-bio{background:var(--bio-bg);border:1px solid var(--bio-border);color:var(--bio);}
+  .focus-bio .dot{background:var(--bio);}
+  .mentor-status{
+    display:flex;align-items:center;justify-content:space-between;padding-top:20px;
+  }
+  .status-live{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;}
+  .status-dot{width:12px;height:12px;border-radius:9999px;background:#059669;position:relative;}
+  .status-dot::before{content:"";position:absolute;inset:-3px;border-radius:9999px;background:#34d399;opacity:.6;animation:pulse 2s infinite;}
+  @keyframes pulse{0%{transform:scale(0.8);opacity:.7;}70%{transform:scale(1.6);opacity:0;}100%{opacity:0;}}
+  .mentor-status .modality{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--navy);}
+
+  /* ---------- CREDIBILITY ---------- */
+  .cred-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .cred-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-top:4px solid var(--navy);
+    border-radius:var(--radius-md);
+    padding:32px;
+    box-shadow:var(--shadow-card);
+  }
+  .cred-card.orange{border-top-color:var(--rust);}
+  .cred-card.teal{border-top-color:var(--teal);}
+  .cred-icon{
+    width:48px;height:48px;border-radius:8px;
+    background:var(--navy-tint);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:24px;
+  }
+  .cred-card.orange .cred-icon{background:var(--orange-light);}
+  .cred-card.teal .cred-icon{background:var(--bio-bg);}
+  .cred-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--rust);}
+  .cred-card h3{font-size:20px;margin-top:4px;line-height:1.4;}
+  .cred-card .cred-sub{font-size:12px;font-weight:500;letter-spacing:0.02em;color:var(--muted);margin-top:16px;padding-bottom:16px;}
+  .cred-card .cred-body{font-size:15px;line-height:1.62;color:var(--muted);}
+
+  /* ---------- TEACHING FRAMEWORKS ---------- */
+  .bg-alt{background:var(--cream);}
+  .bg-white{background:#fff;}
+  .bg-tint{background:var(--cream-alt);}
+  .framework-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    align-items:stretch;
+  }
+  .fw-card{
+    background:#fff;
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius-lg);
+    padding:33px;
+    box-shadow:var(--shadow-card);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .fw-top-row{display:flex;align-items:center;justify-content:space-between;}
+  .fw-tag{
+    background:rgba(0,32,70,0.1);color:var(--navy);
+    padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:600;
+  }
+  .fw-card.alt .fw-tag{background:var(--orange-light);color:#341100;}
+  .fw-kicker{font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--rust);}
+  .fw-card h3{font-size:24px;padding-top:12px;}
+  .fw-subtitle{font-size:15px;font-weight:500;color:var(--rust);padding-top:4px;}
+  .fw-intro{font-size:15px;color:var(--muted);line-height:1.6;padding-top:20px;}
+  .gap-ladder{display:flex;flex-direction:column;gap:16px;padding-top:20px;}
+  .gap-step{
+    display:flex;gap:16px;padding:17px;border-radius:var(--radius-md);
+    background:var(--cream-alt);border:1px solid var(--border);
+  }
+  .gap-step.step2{background:rgba(255,251,235,0.7);border-color:#fde68a;}
+  .gap-step.step3{background:rgba(255,247,237,0.8);border-color:#fed7aa;}
+  .step-num{
+    width:32px;height:32px;border-radius:9999px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;
+    background:#d1fae5;color:#065f46;
+  }
+  .step2 .step-num{background:#fde68a;color:#78350f;}
+  .step3 .step-num{background:#fed7aa;color:#7c2d12;}
+  .gap-step h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--navy);}
+  .gap-step p{font-size:13px;color:var(--muted);line-height:1.55;padding-top:2px;}
+  .fw-quote{
+    margin-top:32px;background:var(--navy-tint);border-left:4px solid var(--navy);
+    border-radius:8px;padding:16px 16px 16px 20px;
+  }
+  .fw-card.alt .fw-quote{border-left-color:var(--rust);}
+  .fw-quote p{font-style:italic;font-weight:600;font-size:12px;color:var(--navy);line-height:1.4;}
+  .stage-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;
+  }
+  .stage-card{
+    background:var(--cream-alt);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:21.5px 17px 17px;
+  }
+  .stage-label{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--rust);}
+  .stage-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--navy);padding-top:5px;}
+  .stage-card p{font-size:13px;color:var(--muted);line-height:1.55;padding-top:4px;}
+
+  /* ---------- CONSULTATION ---------- */
+  .consult-section{background:var(--cream-alt);padding:80px 176px 81px;}
+  .consult-card{
+    background:#fff;
+    border:2px solid rgba(158,67,0,0.3);
+    border-radius:24px;
+    box-shadow:0px 20px 25px -5px rgba(0,0,0,0.1),0px 8px 10px -6px rgba(0,0,0,0.1);
+    padding:48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .consult-glow{
+    position:absolute;bottom:-96px;right:-96px;width:384px;height:384px;border-radius:9999px;
+    background:rgba(255,219,203,0.5);filter:blur(32px);pointer-events:none;
+  }
+  .consult-header{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
+    padding-bottom:33px;border-bottom:1px solid var(--border);flex-wrap:wrap;
+  }
+  .consult-badge{background:var(--orange-light);color:#341100;display:inline-flex;align-items:center;gap:6px;margin-bottom:8px;}
+  .consult-header h2{font-size:32px;line-height:1.25;max-width:560px;}
+  .price-box{
+    background:var(--rust);color:#fff;border-radius:12px;padding:8px 16px;
+    display:flex;align-items:center;gap:8px;box-shadow:0px 1px 1px rgba(0,0,0,0.05);
+  }
+  .price-box .amount{font-size:20px;font-weight:700;}
+  .price-box .per{font-size:12px;opacity:.9;}
+  .price-sub{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--muted);text-align:right;margin-top:4px;}
+  .consult-desc{font-size:18px;line-height:1.62;color:var(--muted);padding:24px 0;position:relative;z-index:1;}
+  .topics-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:32px;position:relative;z-index:1;
+  }
+  .topic-card{
+    background:var(--cream-alt);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:17px;display:flex;gap:14px;
+  }
+  .topic-icon{
+    width:40px;height:40px;border-radius:8px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;background:rgba(0,32,70,0.1);color:var(--navy);
+  }
+  .topic-icon.alt{background:rgba(158,67,0,0.1);color:var(--rust);}
+  .topic-icon.teal{background:rgba(0,62,49,0.1);color:var(--teal);}
+  .topic-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1.3;}
+  .topic-card p{font-size:13px;color:var(--muted);line-height:1.5;padding-top:4px;}
+  .consult-footer{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-top:25px;border-top:1px solid var(--border);position:relative;z-index:1;
+  }
+  .format-note{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;color:var(--ink);}
+  .format-note span.reg{font-weight:400;}
+  .disclaimer-box{
+    margin-top:24px;background:#efeeea;border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:17px;display:flex;gap:12px;position:relative;z-index:1;
+  }
+  .disclaimer-box p{font-size:13px;line-height:1.62;color:var(--muted);}
+  .disclaimer-box strong{color:var(--muted);font-weight:700;}
+
+  /* ---------- FORM ---------- */
+  .form-section{padding:80px 192px 81px;}
+  .form-wrap{max-width:896px;margin:0 auto;}
+  .reg-form{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:41px;box-shadow:var(--shadow-card);
+    display:flex;flex-direction:column;gap:40px;
+  }
+  .form-sec-head{
+    display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);padding-bottom:13px;
+  }
+  .form-sec-head .letter{
+    width:24px;height:24px;border-radius:9999px;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;
+  }
+  .form-sec-head h3{font-size:18px;color:var(--navy);}
+  .form-fields{display:flex;flex-direction:column;gap:24px;padding-top:24px;}
+  .field label{display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+  .field input, .field textarea{
+    width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;
+    padding:13px 17px;font-size:15px;font-family:inherit;color:var(--ink);
+  }
+  .field input::placeholder, .field textarea::placeholder{color:#6b7280;}
+  .field input:focus, .field textarea:focus{outline:2px solid var(--navy);outline-offset:1px;}
+  .field .hint{font-size:11px;font-weight:700;color:var(--muted);margin-top:6px;}
+  .timing-banner{
+    display:flex;gap:12px;align-items:center;background:var(--navy-tint);
+    border:1px solid rgba(196,198,207,0.4);border-radius:var(--radius-md);padding:17px;
+  }
+  .timing-banner .t-title{font-size:12px;font-weight:700;color:var(--navy);}
+  .timing-banner .t-body{font-size:13px;color:var(--muted);margin-top:1px;}
+  .submit-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:8px;}
+  .submit-btn{min-width:280px;height:48px;}
+  .assurance{font-size:13px;color:var(--muted);text-align:center;max-width:448px;line-height:1.5;}
+  .assurance strong{color:var(--muted);font-weight:700;}
+  .form-status{font-size:14px;font-weight:600;text-align:center;min-height:20px;}
+  .form-status.success{color:#065f46;}
+  .form-status.error{color:#b3261e;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .review-card{
+    background:#fff;border:1px solid var(--border-soft);border-radius:var(--radius-md);
+    padding:33px;box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .stars{display:flex;gap:4px;color:var(--rust);margin-bottom:15px;}
+  .review-card blockquote{margin:0;font-style:italic;font-size:15px;line-height:1.62;color:var(--ink);}
+  .review-foot{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-top:1px solid var(--border);padding-top:17px;margin-top:24px;}
+  .review-foot h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--navy);line-height:1.3;}
+  .review-foot .role{font-size:13px;color:var(--muted);margin-top:2px;}
+  .verified-tag{
+    font-size:11px;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:4px;white-space:nowrap;
+  }
+  .verified-student{background:var(--physics-bg);color:var(--physics);}
+  .verified-parent{background:var(--chem-bg);color:var(--chem);}
+  .verified-mentorship{background:var(--bio-bg);color:var(--bio);}
+
+  /* ---------- FAQ ---------- */
+  .faq-section{padding:80px 192px 81px;}
+  .faq-wrap{max-width:896px;margin:0 auto;}
+  .faq-list{display:flex;flex-direction:column;gap:16px;}
+  .faq-item{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);
+    box-shadow:var(--shadow-card);overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:25px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--navy);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item .chev{transition:transform .2s ease;flex-shrink:0;}
+  .faq-item[open] .chev{transform:rotate(180deg);}
+  .faq-answer{padding:0 25px 25px;font-size:15px;line-height:1.65;color:var(--muted);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-tint);border-top:1px solid var(--border);}
+  .footer-inner{padding:40px 48px;display:flex;flex-direction:column;gap:20px;}
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    border-bottom:1px solid rgba(228,226,222,0.7);padding-bottom:25px;
+  }
+  .footer-brand h3{font-size:24px;}
+  .footer-brand p{font-size:13px;color:var(--muted);margin-top:4px;}
+  .footer-contact{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--navy);}
+  .footer-nav{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;}
+  .footer-nav a{font-size:13px;color:var(--muted);}
+  .footer-nav a.highlight{color:var(--navy);font-weight:600;font-size:12px;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:8px;}
+  .footer-bottom p{font-size:13px;color:var(--muted);}
+  .sla{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--rust);}
+  .sla .dot{width:6px;height:6px;background:var(--rust);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1024px){
+    .container{padding:0 32px;}
+    .consult-section{padding:64px 32px;}
+    .form-section, .faq-section{padding:64px 32px;}
+    .hero-grid{grid-template-columns:1fr;}
+    .cred-grid{grid-template-columns:1fr;}
+    .framework-grid{grid-template-columns:1fr;}
+    .reviews-grid{grid-template-columns:1fr;}
+    nav.primary-nav{display:none;}
+    .menu-toggle{display:flex;}
+    nav.primary-nav.open{
+      display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;
+      background:var(--cream);border-bottom:1px solid var(--border);padding:16px 32px;gap:16px;
+    }
+  }
+  @media (max-width:640px){
+    .container{padding:0 20px;}
+    .nav-wrap{padding:8px 20px;}
+    .brand-name{font-size:19px;}
+    .hero{padding:48px 0 56px;}
+    .hero h1{font-size:34px;}
+    .hero-desc{font-size:16px;}
+    .section{padding:56px 0;}
+    .section-head h2{font-size:24px;}
+    .consult-section{padding:48px 16px;}
+    .consult-card{padding:24px;}
+    .consult-header h2{font-size:24px;}
+    .topics-grid{grid-template-columns:1fr;}
+    .stage-grid{grid-template-columns:1fr;}
+    .form-section{padding:48px 16px;}
+    .reg-form{padding:24px;}
+    .form-fields{gap:16px;}
+    .faq-section{padding:48px 16px;}
+    .faq-item summary{font-size:16px;padding:18px;}
+    .header-ctas .badge-consult{display:none;}
+    .footer-top{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav-wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg width="17" height="14" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L1 7l11 5 9-4.09V15h2V7L12 2zM5 10.18v4.18C5 16.8 8.13 18.5 12 18.5s7-1.7 7-4.14v-4.18l-7 3.18-7-3.18z" fill="#fff"/></svg>
+      </span>
+      <span>
+        <span class="brand-name" style="display:block;">Learn with Santushta</span>
+        <span class="brand-tagline">Personalised Science &amp; Mentorship</span>
+      </span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#about">About</a>
+      <a href="#approach">Approach</a>
+      <a href="#subjects" class="active">Subjects</a>
+      <a href="#consultation">1:1 Guidance</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+
+    <div class="header-ctas">
+      <a href="#consultation" class="pill badge-consult"><span class="dot"></span>₹25 Consultation</a>
+      <a href="#register" class="btn btn-primary">Book a Class</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero section" id="subjects" style="border-bottom:1px solid var(--border);">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="pill hero-eyebrow">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.9 5.5L19 9l-5.1 1.5L12 16l-1.9-5.5L5 9l5.1-1.5L12 2z" fill="#9e4300"/></svg>
+        Personalised Tutoring &amp; Student Mentorship
+      </span>
+      <h1>Learn Better. Prepare<br>Smarter. <em>Grow Confidently.</em></h1>
+      <p class="hero-desc">Hi, I&rsquo;m Santushta Iyer. I offer focused, one-to-one science tutoring and academic mentoring for school and board-preparing students. Whether you are building core fundamentals in Physics, Chemistry, and Biology, or preparing systematically for upcoming exams, our sessions are tailored to your pace, your syllabus, and how you learn best&mdash;available both online and offline.</p>
+
+      <div class="trust-badges">
+        <span class="pill trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z" fill="#002046"/></svg>
+          Dedicated 1:1 Attention
+        </span>
+        <span class="pill trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 2v6.2L4.5 17a2 2 0 001.8 3h11.4a2 2 0 001.8-3L15 8.2V2H9zm2 2h2v4.7l.2.4L17 17H7l3.8-7.9.2-.4V4z" fill="#9e4300"/></svg>
+          Physics, Chemistry &amp; Biology
+        </span>
+        <span class="pill trust-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10.6l4 2.4-.8 1.3-4.7-2.8V6h1.5v6.6z" fill="#00261d"/></svg>
+          Flexible Scheduling
+        </span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#register" class="btn btn-primary">Book a Class</a>
+        <a href="#consultation" class="btn btn-outline">Explore 1:1 Consultation (₹25)</a>
+      </div>
+    </div>
+
+    <div class="mentor-card">
+      <div class="mentor-top">
+        <div class="mentor-photo">SI</div>
+        <div>
+          <div class="mentor-name-row">
+            <h3>Santushta Iyer</h3>
+            <svg width="17" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 1.4 2.8-.2 1.2 2.5 2.5 1.2-.2 2.8L22 12l-1.3 2.3.2 2.8-2.5 1.2-1.2 2.5-2.8-.2L12 22l-2.4-1.4-2.8.2-1.2-2.5-2.5-1.2.2-2.8L2 12l1.3-2.3-.2-2.8 2.5-1.2 1.2-2.5 2.8.2L12 2z" fill="#059669"/><path d="M9 12.5l2 2 4-4.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="mentor-role">Science Educator &amp; Student Mentor</p>
+          <p class="mentor-sub">M.Tech VIT Chennai &bull; Former Kalvium Mentor</p>
+        </div>
+      </div>
+      <div class="mentor-domains">
+        <span class="eyebrow" style="text-align:left;">Specialized Focus Disciplines</span>
+        <div>
+          <span class="focus-pill focus-physics"><span class="dot"></span>Physics (Concepts &amp; Numericals)</span><br>
+          <span class="focus-pill focus-chem"><span class="dot"></span>Chemistry (Organic &amp; Formulas)</span><br>
+          <span class="focus-pill focus-bio"><span class="dot"></span>Biology (Anatomy &amp; Cell Systems)</span>
+        </div>
+      </div>
+      <div class="mentor-status">
+        <div class="status-live"><span class="status-dot"></span>Available Mon&ndash;Fri 5&ndash;9 PM &amp; Weekends</div>
+        <div class="modality">Online &amp; Offline</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDIBILITY ================= -->
+<section class="section bg-white" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Academic Background &amp; Mentorship</span>
+      <h2>Teaching Experience That Goes Beyond Textbooks</h2>
+      <p>Subject knowledge is only half the picture. The real craft of teaching lies in understanding how a student thinks, where they get stuck, and which explanation unlocks their clarity.</p>
+    </div>
+
+    <div class="cred-grid">
+      <div class="cred-card">
+        <div class="cred-icon">
+          <svg width="20" height="17" viewBox="0 0 24 20" fill="none"><path d="M12 2L1 7l11 5 9-4.09V15h2V7L12 2zM5 10.18v4.18C5 16.8 8.13 18.5 12 18.5s7-1.7 7-4.14v-4.18l-7 3.18-7-3.18z" fill="#002046"/></svg>
+        </div>
+        <span class="cred-eyebrow">Academic Foundation</span>
+        <h3>M.Tech in CSE (Business Analytics)</h3>
+        <p class="cred-sub">VIT Chennai</p>
+        <p class="cred-body">Santushta&rsquo;s advanced engineering education provides a strong analytical foundation. She approaches science not as disconnected facts to memorize, but as structured problem-solving&mdash;helping students build the same logical, step-by-step thinking in their own studies.</p>
+      </div>
+      <div class="cred-card orange">
+        <div class="cred-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2zm-2 19h4v1h-4v-1z" fill="#9e4300"/></svg>
+        </div>
+        <span class="cred-eyebrow">Proven Mentorship</span>
+        <h3>Former Technical Mentor at Kalvium</h3>
+        <p class="cred-sub">2 Semesters of Dedicated Guidance</p>
+        <p class="cred-body">Mentored first-year engineering students through intensive technical curricula. This experience honed her ability to spot where learners struggle, adapt explanations to individual learning styles, and cultivate autonomous, self-reliant inquiry.</p>
+      </div>
+      <div class="cred-card teal">
+        <div class="cred-icon">
+          <svg width="18" height="14" viewBox="0 0 24 20" fill="none"><path d="M12 5c-2-1.7-5-2-8-1v14c3-1 6-.7 8 1 2-1.7 5-2 8-1V4c-3-1-6-.7-8 1z" fill="#003e31"/></svg>
+        </div>
+        <span class="cred-eyebrow">Rigorous Pedagogy</span>
+        <h3>Continuous Learning &amp; Civil Services Preparation</h3>
+        <p class="cred-sub">Current Affairs &amp; Analytical Studies</p>
+        <p class="cred-body">Her ongoing preparation brings exceptional discipline, broad interdisciplinary perspective, and structured exam strategies directly into each session. She teaches students how to organize information and handle rigorous examination requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEACHING FRAMEWORKS ================= -->
+<section class="section bg-alt" id="approach">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How We Learn</span>
+      <h2>Every Student Doesn&rsquo;t Need the Same Explanation.<br>They Need the Right One.</h2>
+      <p>Generic tutoring rushes through chapters to check off syllabus boxes. Our sessions focus on deep conceptual understanding through two proven, student-first frameworks:</p>
+    </div>
+
+    <div class="framework-grid">
+      <div class="fw-card">
+        <div>
+          <div class="fw-top-row">
+            <span class="fw-tag">Framework 01</span>
+            <span class="fw-kicker">Diagnostic First</span>
+          </div>
+          <h3>The Student Gap Check</h3>
+          <p class="fw-subtitle">Diagnose Before Delivering</p>
+          <p class="fw-intro">Before diving into any chapter, we identify where the student actually stands using a rapid diagnostic triage:</p>
+
+          <div class="gap-ladder">
+            <div class="gap-step">
+              <span class="step-num">1</span>
+              <div>
+                <h4>What you already know well</h4>
+                <p>Solid foundation to build upon; reinforced with brief confidence checks rather than redundant drills.</p>
+              </div>
+            </div>
+            <div class="gap-step step2">
+              <span class="step-num">2</span>
+              <div>
+                <h4>What you partially understand</h4>
+                <p>Where misconceptions quietly hide and lead to unexpected exam errors.</p>
+              </div>
+            </div>
+            <div class="gap-step step3">
+              <span class="step-num">3</span>
+              <div>
+                <h4>What you are missing completely</h4>
+                <p>Where the conceptual bridge needs to be established step-by-step from base principles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fw-quote">
+          <p>&ldquo;No wasted time re-explaining mastered concepts, and no jumping ahead before fundamentals click.&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="fw-card alt">
+        <div>
+          <div class="fw-top-row">
+            <span class="fw-tag">Framework 02</span>
+            <span class="fw-kicker">Active Retention</span>
+          </div>
+          <h3>The Explain It Back Method</h3>
+          <p class="fw-subtitle">True Understanding Leaves No Room for Guesswork</p>
+          <p class="fw-intro">Passive listening creates an illusion of understanding. In Santushta&rsquo;s sessions, once a concept is taught, the student explains it back in their own words:</p>
+
+          <div class="stage-grid">
+            <div class="stage-card">
+              <span class="stage-label">Step 01</span>
+              <h4>Learn</h4>
+              <p>Clear, structured explanation with relatable real-world science examples.</p>
+            </div>
+            <div class="stage-card">
+              <span class="stage-label">Step 02</span>
+              <h4>Explain</h4>
+              <p>Student articulates the concept back in their natural vocabulary without memorized jargon.</p>
+            </div>
+            <div class="stage-card">
+              <span class="stage-label">Step 03</span>
+              <h4>Apply</h4>
+              <p>Solve non-standard numericals and board-pattern application questions independently.</p>
+            </div>
+            <div class="stage-card">
+              <span class="stage-label">Step 04</span>
+              <h4>Remember</h4>
+              <p>Long-term retention built through self-formulated concept schematics and summaries.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fw-quote">
+          <p>&ldquo;If you can&rsquo;t explain it simply, you don&rsquo;t understand it yet. Once you can, the exam is painless.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONSULTATION ================= -->
+<section class="consult-section" id="consultation">
+  <div class="consult-card">
+    <div class="consult-glow"></div>
+    <div class="consult-header">
+      <div>
+        <span class="pill consult-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H7l-3 3V4z" fill="#9e4300"/></svg>
+          Academic &amp; Student Guidance
+        </span>
+        <h2>Sometimes, You Just Need a Conversation.</h2>
+      </div>
+      <div style="text-align:right;">
+        <div class="price-box"><span class="amount">&#8377;25</span><span class="per">/ session</span></div>
+        <p class="price-sub">1:1 Confidential Guidance</p>
+      </div>
+    </div>
+
+    <p class="consult-desc">School life can feel overwhelming. Balancing heavy syllabi, board exam expectations, tuition schedules, and self-study often leaves students anxious and unsure where to direct their energy. Parents worry about direction; students feel the pressure. This focused 1:1 session gives you an objective, supportive space to step back, assess, and reset with clear actionable priorities.</p>
+
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5V4zm2 2v3h10V6H7zm0 5v2h4v-2H7zm6 0v2h4v-2h-4zm-6 4v2h4v-2H7zm6 0v2h4v-2h-4z" fill="#002046"/></svg>
+        </div>
+        <div>
+          <h4>Exam Preparation &amp; Timetable Planning</h4>
+          <p>Building realistic revision routines that respect student stamina and syllabus targets.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon alt">
+          <svg width="14" height="12" viewBox="0 0 24 20" fill="none"><path d="M12 2a5 5 0 015 5c0 2-1 3.5-2.5 4.5L15 18h-6l.5-6.5C8 10.5 7 9 7 7a5 5 0 015-5z" fill="#9e4300"/></svg>
+        </div>
+        <div>
+          <h4>Handling Academic Overwhelm &amp; Pressure</h4>
+          <p>Grounding strategies to dismantle test anxiety and regain study momentum calmly.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon teal">
+          <svg width="11" height="14" viewBox="0 0 16 20" fill="none"><path d="M8 0c4 2 8 1 8 1v10c0 5-4 8-8 9-4-1-8-4-8-9V1s4 1 8-1z" fill="#003e31"/></svg>
+        </div>
+        <div>
+          <h4>Subject-Specific Roadblocks</h4>
+          <p>Diagnosing exactly why Physics, Chemistry, or Biology marks are plateauing.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="none" stroke="#002046" stroke-width="1.6"/><path d="M15 9l-4 2-2 4 4-2 2-4z" fill="#002046"/></svg>
+        </div>
+        <div>
+          <h4>General Academic &amp; Career Direction</h4>
+          <p>Sensible, practical mentoring on STEM subject streams and higher study readiness.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="consult-footer">
+      <div class="format-note">
+        <svg width="17" height="14" viewBox="0 0 24 20" fill="none"><path d="M2 4h14v12H2V4zm16 3l5-2v10l-5-2V7z" fill="#9e4300"/></svg>
+        <span><strong>Format:</strong> <span class="reg">Available via Google Meet (Video/Audio) or a direct Phone Call.</span></span>
+      </div>
+      <a href="upi://pay?pa=santushta2136@okaxis&amp;pn=Santushta%20Iyer&amp;am=25&amp;cu=INR&amp;tn=1:1%20Consultation" class="btn btn-primary" id="claimSessionBtn">Claim My &#8377;25 Session</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" style="margin-top:2px;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke="#44474e" stroke-width="1.6"/><path d="M12 8h.01M11 11h1v6h1" stroke="#44474e" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <p><strong>Note:</strong> This session provides educational guidance, study planning, and peer-level academic mentoring. It is not a clinical medical, psychological, or mental health counselling service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRATION FORM ================= -->
+<section class="form-section bg-white" id="register">
+  <div class="form-wrap">
+    <div class="section-head" style="margin-bottom:48px;">
+      <span class="eyebrow">Get Started</span>
+      <h2>Let&rsquo;s Understand Your Learning Needs</h2>
+      <p style="font-size:15px;">Every student is unique. Sharing these details helps Santushta tailor the very first session to your syllabus, current challenge areas, and learning goals.</p>
+    </div>
+
+    <form class="reg-form" id="registrationForm" novalidate>
+      <div>
+        <div class="form-sec-head"><span class="letter">A</span><h3>Student Details</h3></div>
+        <div class="form-fields">
+          <div class="field">
+            <label for="studentName">Student Full Name *</label>
+            <input type="text" id="studentName" name="name" placeholder="e.g. Aryan Sharma" required>
+          </div>
+          <div class="field">
+            <label for="studentEmail">Student Email Address</label>
+            <input type="email" id="studentEmail" name="email" placeholder="student@example.com" required>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-sec-head"><span class="letter">B</span><h3>Contact Details</h3></div>
+        <div class="form-fields">
+          <div class="field">
+            <label for="studentPhone">WhatsApp / Contact Number *</label>
+            <input type="tel" id="studentPhone" name="phone" placeholder="+91 98765 43210" required>
+            <p class="hint">Used only to confirm session availability and share class links.</p>
+          </div>
+          <div class="timing-banner">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="9" stroke="#002046" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#002046" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <div>
+              <p class="t-title">Regular Session Timings</p>
+              <p class="t-body">Monday to Friday: 5:00 PM &ndash; 9:00 PM IST | Saturday &amp; Sunday: Flexible / By Appointment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">Request a Class</button>
+        <p class="assurance">I review each request personally to ensure we are a good pedagogical fit. You will hear back within <strong>24 hours</strong> via WhatsApp or Email.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section bg-alt" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Student &amp; Parent Voices</span>
+      <h2>Learning Experiences That Matter</h2>
+      <p>Every student&rsquo;s learning journey is different. Here is what students and parents value about our structured, empathetic approach to science education and exam preparation.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;Physics formulas used to feel like pure rote memory until Santushta explained the mechanics from scratch. The &lsquo;Explain It Back&rsquo; method meant I couldn&rsquo;t just nod along&mdash;I actually had to understand it. Numericals are no longer terrifying.&rdquo;</blockquote>
+        </div>
+        <div class="review-foot">
+          <div>
+            <h4>Class 10 CBSE Student</h4>
+            <p class="role">Physics &amp; Chemistry Mentorship</p>
+          </div>
+          <span class="verified-tag verified-student">Verified Student</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;What we appreciated most as parents was the calm, methodical structure. Rather than piling on more stress before the 12th board exams, Santushta organized our daughter&rsquo;s study timetable and brought consistent clarity to her organic chemistry.&rdquo;</blockquote>
+        </div>
+        <div class="review-foot">
+          <div>
+            <h4>Parent of Class 12 Student</h4>
+            <p class="role">Board Examination Preparation</p>
+          </div>
+          <span class="verified-tag verified-parent">Verified Parent</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;The &#8377;25 consultation session gave me complete clarity when I was burning out from school and coaching conflicts. Santushta helped me diagnose why I was losing marks despite studying 8 hours a day. Highly recommended.&rdquo;</blockquote>
+        </div>
+        <div class="review-foot">
+          <div>
+            <h4>1:1 Consultation Participant</h4>
+            <p class="role">Academic Planning &amp; Direction</p>
+          </div>
+          <span class="verified-tag verified-mentorship">Mentorship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq-section bg-white" id="faqs">
+  <div class="faq-wrap">
+    <div class="section-head" style="margin-bottom:64px;">
+      <span class="eyebrow">Frequently Asked Questions</span>
+      <h2>Everything You Need to Know</h2>
+      <p style="font-size:15px;">Clear, transparent answers about sessions, pedagogy, scheduling, and guidance.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>1. What subjects does Santushta teach?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Santushta teaches Physics, Chemistry, and Biology at the school level, alongside focused board examination preparation, academic guidance, and general career guidance for students navigating STEM subject streams.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>2. Which curriculum boards are covered?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Sessions are tailored to your specific curriculum and board&mdash;just let Santushta know your board and class when you register, and the first session will be structured around your actual syllabus.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>3. How are online tutoring sessions conducted?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Online sessions run over Google Meet with interactive digital whiteboarding, so concepts are worked through visually and in real time, just like an in-person session.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>4. Is offline (in-person) tutoring available?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Yes, offline sessions are available subject to location and schedule availability. Mention your preference when you register and Santushta will confirm feasibility.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>5. What is the &#8377;25 Consultation session?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">It&rsquo;s a focused 1:1 conversation&mdash;over Google Meet or a phone call&mdash;to help you step back, assess where things stand, and leave with clear, actionable priorities on exam prep, subject roadblocks, or academic direction.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>6. Is the &#8377;25 session therapy or mental health counselling?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">No. This session provides educational guidance, study planning, and peer-level academic mentoring. It is not a clinical medical, psychological, or mental health counselling service.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>7. How does &ldquo;The Student Gap Check&rdquo; work?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Before any chapter begins, Santushta runs a rapid diagnostic to identify what you already know well, what you partially understand, and what you are missing completely&mdash;so no time is wasted re-teaching mastered concepts or rushing past shaky fundamentals.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>8. What is the &ldquo;Explain It Back&rdquo; method?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">After every concept is taught, the student explains it back in their own words, then applies it to non-standard problems and builds their own summary for long-term retention&mdash;a four-step Learn, Explain, Apply, Remember cycle.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>9. What are the regular class hours?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Monday to Friday, 5:00 PM &ndash; 9:00 PM IST, with weekends available flexibly by appointment.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>10. Can parents attend or receive feedback?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Yes, parents are welcome to stay informed of progress. Just mention your preference when registering and Santushta will share regular updates alongside the student.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>11. How do we reschedule a session if an emergency arises?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Simply reach out over WhatsApp or email as early as possible. Santushta will work with you to find the next available slot within the regular session timings.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>12. What happens after I submit the registration form?
+          <svg class="chev" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#002046" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="faq-answer">Santushta reviews each request personally to ensure a good pedagogical fit, and you&rsquo;ll hear back within 24 hours via WhatsApp or Email to confirm your first session.</div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Learn with Santushta</h3>
+        <p>Personalised learning. Practical guidance. Confident students.</p>
+      </div>
+      <a href="mailto:contact@learnwithsantushta.com" class="footer-contact">
+        <svg width="17" height="14" viewBox="0 0 24 20" fill="none"><path d="M2 4h20v16H2V4zm2 2v.3l8 6 8-6V6H4zm16 3.4l-8 6-8-6V18h16V9.4z" fill="#002046"/></svg>
+        contact@learnwithsantushta.com
+      </a>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#about">About Santushta</a>
+      <a href="#subjects">Subject Mentorship</a>
+      <a href="#approach">Pedagogy &amp; Frameworks</a>
+      <a href="#consultation" class="highlight">&#8377;25 Consultation</a>
+      <a href="#faqs">FAQs &amp; Policies</a>
+      <a href="#register">Contact &amp; Scheduling</a>
+    </nav>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Learn with Santushta. Grounded pedagogy &amp; dedicated mentorship. All rights reserved.</p>
+      <span class="sla"><span class="dot"></span>Direct 24-Hour Response Window</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Mobile nav toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var primaryNav = document.getElementById('primaryNav');
+  if (menuToggle && primaryNav) {
+    menuToggle.addEventListener('click', function(){
+      primaryNav.classList.toggle('open');
+    });
+    primaryNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){ primaryNav.classList.remove('open'); });
+    });
+  }
+
+  // ===================== FORM SUBMISSION =====================
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqpv_j8cvNA3HjnYCR1ADqcjfhPKQ22zRsOObJwGe7A5CmAI8JgX2rj1aRDb2zjfOqdQ/exec";
+
+  var form = document.getElementById('registrationForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var statusEl = document.getElementById('formStatus');
+  var isSubmitting = false;
+
+  function showSuccess(){
+    statusEl.textContent = "Thank you! Your details have been received. Santushta will get in touch with you shortly.";
+    statusEl.className = "form-status success";
+    form.reset();
+  }
+
+  function showError(){
+    statusEl.textContent = "Something went wrong. Please try again.";
+    statusEl.className = "form-status error";
+  }
+
+  function setLoading(loading){
+    isSubmitting = loading;
+    submitBtn.disabled = loading;
+    submitBtn.textContent = loading ? "Submitting..." : "Request a Class";
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    var name = document.getElementById('studentName').value.trim();
+    var email = document.getElementById('studentEmail').value.trim();
+    var phone = document.getElementById('studentPhone').value.trim();
+
+    statusEl.textContent = "";
+    statusEl.className = "form-status";
+
+    if (!name || !email || !phone) {
+      showError();
+      statusEl.textContent = "Please fill in your name, email, and phone number.";
+      return;
+    }
+
+    setLoading(true);
+
+    var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+    fetch(url, {
+      method: "GET",
+      mode: "no-cors"
+    })
+    .then(function(){
+      setLoading(false);
+      showSuccess();
+    })
+    .catch(function(){
+      setLoading(false);
+      showError();
+    });
+  });
+})();
+</script>
+</body>
+</html>
